@@ -1,4 +1,4 @@
-
+const API_URL = "https://atm-simulation-45b2.onrender.com";
 import { useState } from "react";
 import "./App.css";
 
@@ -20,7 +20,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/pin", {
+      const response = await fetch(`${API_URL}/api/pin`,  {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ pin }),
@@ -57,7 +57,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/balance");
+      const response = await fetch(`${API_URL}/api/balance`);
       const data = await response.json();
 
       if (data.success) {
@@ -91,7 +91,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/${transactionType}`,
+        `${API_URL}/api/${transactionType}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
