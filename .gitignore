@@ -1,0 +1,14 @@
+# Compiled C++ executables
+backend/server
+backend/atm
+backend/atm-server
+
+# Node dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+
+# Environment variables
+.env
+.env.*

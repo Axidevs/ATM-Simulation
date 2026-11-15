@@ -1,4 +1,4 @@
-
+#include <cstdlib>
 #include <iostream>
 #include <httplib.h>
 #include <nlohmann/json.hpp>
@@ -119,9 +119,12 @@ server.Options(R"(.*)", [](const httplib::Request& req,
         }
     });
 
-    cout << "ATM Server running at http://localhost:8080" << endl;
+    cout << "ATM Server running at http://0.0.0.0:8080" << endl;
 
-    server.listen("localhost", 8080);
+   const char* portEnv = std::getenv("PORT");
+int port = portEnv ? std::stoi(portEnv) : 8080;
+
+server.listen("0.0.0.0", port);
 
     return 0;
 }
